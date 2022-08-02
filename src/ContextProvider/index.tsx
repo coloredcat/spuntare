@@ -1,1 +1,1 @@
-export { default, ModalControllerProps, useModal } from './ContextProvider';
+export { default, ModalControllerProps, useModal } from "./ContextProvider";

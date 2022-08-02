@@ -18,7 +18,7 @@
     "src"
   ],
   "engines": {
-    "node": ">=10"
+    "node": ">=14"
   },
   "scripts": {
     "start": "tsdx watch",
@@ -37,12 +37,6 @@
       "pre-commit": "tsdx lint"
     }
   },
-  "prettier": {
-    "printWidth": 80,
-    "semi": true,
-    "singleQuote": true,
-    "trailingComma": "es5"
-  },
   "name": "@ironeko/spuntare",
   "author": "Leonardo Petrucci",
   "module": "dist/modal-controller.esm.js",
@@ -52,11 +46,11 @@
   },
   "size-limit": [
     {
-      "path": "dist/modal-controller.cjs.production.min.js",
+      "path": "dist/spuntare.cjs.production.min.js",
       "limit": "10 KB"
     },
     {
-      "path": "dist/modal-controller.esm.js",
+      "path": "dist/spuntare.esm.js",
       "limit": "10 KB"
     }
   ],

@@ -1,4 +1,3 @@
-import 'react-app-polyfill/ie11';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import Button from './components/button';
@@ -6,6 +5,8 @@ import { SpuntareContextProvider, useSpuntare } from '@ironeko/spuntare';
 import { AnimatePresence } from 'framer-motion';
 import Modal, { ModalProps } from './components/modal';
 import Overlay from './components/overlay';
+import Input from './components/input';
+import { useForm } from 'react-hook-form';
 
 const App = () => {
   return (
@@ -36,26 +37,115 @@ const App = () => {
   );
 };
 
-const DeepModal = () => {
-  const { removeAll, sharedData } = useSpuntare();
+const ConfirmationModal = () => {
+  const { sharedData, removeAll } = useSpuntare();
 
   return (
-    <>
-      <p>
-        Praesent dapibus, neque id cursus faucibus, tortor neque egestas auguae,
-        eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi,
-        tincidunt quis, accumsan porttitor, facilisis luctus, metus.
-      </p>
+    <div
+      style={{
+        marginTop: 25,
+        position: 'relative',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 16,
+      }}
+    >
+      {/* We read the shared state from here */}
+      <div>First name: {sharedData.firstName}</div>
+      <div>Last name: {sharedData.lastName}</div>
       <div
         style={{
           display: 'flex',
           marginTop: 25,
           justifyContent: 'flex-end',
+          gap: 8,
         }}
       >
-        <Button onClick={() => removeAll()}>No!</Button>
+        <Button onClick={() => removeAll()}>Yeah, it's okay</Button>
       </div>
-    </>
+    </div>
+  );
+};
+
+const FormWithinModal = () => {
+  const { setSharedData, create, removeLast } = useSpuntare();
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm();
+
+  return (
+    <div
+      style={{
+        marginTop: 25,
+        position: 'relative',
+      }}
+    >
+      <form
+        onSubmit={handleSubmit(({ firstName, lastName }) => {
+          /**
+           * Set the values to the modal stack state and then open a confirmation modal
+           */
+          setSharedData({
+            firstName,
+            lastName,
+          });
+          create('modal', {
+            closeProps: {
+              onClick: () => removeLast(),
+            },
+            title: 'Are you sure this is correct?',
+            description: <ConfirmationModal />,
+          });
+        })}
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 16,
+        }}
+      >
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            flex: '1',
+          }}
+        >
+          <Input
+            {...register('firstName', { required: true })}
+            placeholder="First name"
+          />
+          {errors.firstName && <span>This field is required</span>}
+        </div>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            flex: '1',
+          }}
+        >
+          <Input
+            {...register('lastName', { required: true })}
+            placeholder="Last name"
+          />
+          {errors.lastName && <span>This field is required</span>}
+        </div>
+        <div
+          style={{
+            position: 'fixed',
+            display: 'flex',
+            bottom: 0,
+            justifyContent: 'flex-end',
+            left: 0,
+            right: 0,
+            padding: 16,
+          }}
+        >
+          <Button type="submit">Update</Button>
+        </div>
+      </form>
+    </div>
   );
 };
 
@@ -69,93 +159,8 @@ const Internal = () => {
           closeProps: {
             onClick: () => removeLast(),
           },
-          title: 'Can you confirm this?',
-          description: (
-            <>
-              <div
-                style={{
-                  display: 'flex',
-                  marginTop: 25,
-                  justifyContent: 'flex-end',
-                  gap: 8,
-                }}
-              >
-                <Button
-                  onClick={() =>
-                    create('overlay', {
-                      title: 'Can you confirm this?',
-                      description: (
-                        <>
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing
-                            elit. Donec odio. Quisque volutpat mattis eros.
-                            Nullam malesuada erat ut turpis. Suspendisse urna
-                            nibh, viverra non, semper suscipit, posuere a, pede.
-                          </p>
-                          <div
-                            style={{
-                              display: 'flex',
-                              marginTop: 25,
-                              justifyContent: 'flex-end',
-                            }}
-                          >
-                            <Button
-                              onClick={() =>
-                                create('modal', {
-                                  title: 'Can you confirm this?',
-                                  description: (
-                                    <>
-                                      <p>
-                                        Donec nec justo eget felis facilisis
-                                        fermentum. Aliquam porttitor mauris sit
-                                        amet orci. Aenean dignissim pellentesque
-                                        felis.
-                                      </p>
-                                      <div
-                                        style={{
-                                          display: 'flex',
-                                          marginTop: 25,
-                                          justifyContent: 'flex-end',
-                                        }}
-                                      >
-                                        <Button
-                                          onClick={() =>
-                                            create('modal', {
-                                              title: 'Can you confirm this?',
-                                              description: <DeepModal />,
-                                              closeProps: {
-                                                onClick: () => removeLast(),
-                                              },
-                                            })
-                                          }
-                                        >
-                                          Sure why not
-                                        </Button>
-                                      </div>
-                                    </>
-                                  ),
-                                  closeProps: {
-                                    onClick: () => removeLast(),
-                                  },
-                                })
-                              }
-                            >
-                              Sure why not
-                            </Button>
-                          </div>
-                        </>
-                      ),
-                      closeProps: {
-                        onClick: () => removeLast(),
-                      },
-                    })
-                  }
-                >
-                  Sure why not
-                </Button>
-              </div>
-            </>
-          ),
+          title: 'What is your name?',
+          description: <FormWithinModal />,
         } as ModalProps);
       }}
     >

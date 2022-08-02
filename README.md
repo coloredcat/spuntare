@@ -1,4 +1,4 @@
-![alt text](https://github.com/ironeko/spuntare/blob/master/animation.gif?raw=true)
+![alt text](https://github.com/coloredcat/spuntare/blob/main/animation.gif)
 
 # Spuntare
 

@@ -1,10 +1,4 @@
-import React, {
-  createContext,
-  useContext,
-  useEffect,
-  useReducer,
-  useState,
-} from 'react';
+import React, { createContext, useContext, useReducer, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 export interface Context {

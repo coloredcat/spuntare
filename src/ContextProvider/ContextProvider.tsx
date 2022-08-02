@@ -1,22 +1,10 @@
-import React, { createContext } from "react";
+import React from "react";
 import { v4 as uuidv4 } from "uuid";
-
-export interface Context {
-  dialogs: {
-    id: string;
-    modalType: string;
-    props: any[];
-  }[];
-  setDialogs: (a: any) => any;
-  sharedData: any;
-  setSharedData: React.Dispatch<any>;
-}
-
-const Context = createContext<Context>({} as Context);
+import { Context, context } from "./context";
 
 export const useModal = () => {
   const { dialogs, setDialogs, sharedData, setSharedData } = React.useContext(
-    Context
+    context
   );
 
   const create = (type: string, props: any) => {
@@ -175,7 +163,7 @@ const ContextProvider = ({
   );
 
   return (
-    <Context.Provider
+    <context.Provider
       value={{ dialogs, setDialogs, sharedData, setSharedData }}
     >
       <Wrapper>
@@ -212,7 +200,7 @@ const ContextProvider = ({
         })}
       </Wrapper>
       {children}
-    </Context.Provider>
+    </context.Provider>
   );
 };
 

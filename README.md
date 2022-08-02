@@ -71,3 +71,13 @@ const App = () => {
 The first argument to `create` is the name you assigned to your modal type in `config`, the second is whatever props your modal needs. It's not typechecked since we don't know what props your modal takes, so be careful!
 
 Spuntare will also pass its own props to your modal, these can be used to apply styles depending on the modal state. Check the examples for more info.
+
+## Examples
+
+[Basic example](https://codesandbox.io/s/github/coloredcat/spuntare/tree/main/example?file=/index.tsx).
+
+Shows how to:
+
+- Use multiple modal components configurations
+- Create nested modals
+- How to animate entry and exit with `framer-motion`

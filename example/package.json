@@ -14,12 +14,8 @@
     "@stitches/react": "^1.2.8",
     "framer-motion": "^6.5.1",
     "react": ">=16",
-    "react-app-polyfill": "^1.0.0"
-  },
-  "alias": {
-    "react": "../node_modules/react",
-    "react-dom": "../node_modules/react-dom/profiling",
-    "scheduler/tracing": "../node_modules/scheduler/tracing-profiling"
+    "react-app-polyfill": "^1.0.0",
+    "react-dom": ">=16"
   },
   "devDependencies": {
     "@types/react": "^16.9.11",

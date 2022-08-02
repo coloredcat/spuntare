@@ -37,12 +37,6 @@
       "pre-commit": "tsdx lint"
     }
   },
-  "prettier": {
-    "printWidth": 80,
-    "semi": true,
-    "singleQuote": true,
-    "trailingComma": "es5"
-  },
   "name": "@ironeko/spuntare",
   "author": "Leonardo Petrucci",
   "module": "dist/modal-controller.esm.js",

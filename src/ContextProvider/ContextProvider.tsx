@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useReducer, useState } from 'react';
+import React, { createContext } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 export interface Context {
@@ -16,7 +16,7 @@ const Context = createContext<Context>({} as Context);
 
 export const useModal = () => {
   const { dialogs, setDialogs, sharedData, setSharedData } =
-    useContext(Context);
+    React.useContext(Context);
 
   const create = (type: string, props: any) => {
     setDialogs({
@@ -168,8 +168,8 @@ const ContextProvider = ({
   const Wrapper = (modalWrapper || React.Fragment) as any;
   const state = [] as Context['dialogs'];
 
-  const [dialogs, setDialogs] = useReducer(reducer, state);
-  const [sharedData, setSharedData] = useState<any | undefined>(undefined);
+  const [dialogs, setDialogs] = React.useReducer(reducer, state);
+  const [sharedData, setSharedData] = React.useState<any | undefined>(undefined);
 
   return (
     <Context.Provider

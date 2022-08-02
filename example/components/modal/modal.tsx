@@ -3,7 +3,7 @@ import * as DialogPrimitive from '@radix-ui/react-dialog';
 import { blackA, mauve } from '@radix-ui/colors';
 import { styled } from '@stitches/react';
 import { HTMLMotionProps, motion } from 'framer-motion';
-import { SpuntareProps } from '../../dist';
+import { SpuntareProps } from '../@ironeko/spuntare';
 
 const StyledOverlay = styled(DialogPrimitive.Overlay, {
   backgroundColor: blackA.blackA9,

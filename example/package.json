@@ -8,11 +8,13 @@
     "build": "parcel build index.html"
   },
   "dependencies": {
-    "react-app-polyfill": "^1.0.0",
+    "@ironeko/spuntare": "^1.0.0",
     "@radix-ui/colors": "^0.1.8",
     "@radix-ui/react-dialog": "^1.0.0",
     "@stitches/react": "^1.2.8",
-    "framer-motion": "^6.5.1"
+    "framer-motion": "^6.5.1",
+    "react": ">=16",
+    "react-app-polyfill": "^1.0.0"
   },
   "alias": {
     "react": "../node_modules/react",

@@ -2,7 +2,7 @@ import 'react-app-polyfill/ie11';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import Button from './components/button';
-import { SpuntareContextProvider, useSpuntare } from '../dist';
+import { SpuntareContextProvider, useSpuntare } from '@ironeko/spuntare';
 import { AnimatePresence } from 'framer-motion';
 import Modal, { ModalProps } from './components/modal';
 import Overlay from './components/overlay';

@@ -74,10 +74,17 @@ Spuntare will also pass its own props to your modal, these can be used to apply 
 
 ## Examples
 
-[Basic example](https://codesandbox.io/s/github/coloredcat/spuntare/tree/main/example?file=/index.tsx).
+### [Basic example](https://codesandbox.io/s/github/coloredcat/spuntare/tree/main/example?file=/index.tsx)
 
 Shows how to:
 
 - Use multiple modal components configurations
 - Create nested modals
 - How to animate entry and exit with `framer-motion`
+
+### [Form example](https://codesandbox.io/s/github/coloredcat/spuntare/tree/main/example?file=/index.tsx)
+
+Shows how to:
+
+- Create a form within a modal
+- Share data between modals

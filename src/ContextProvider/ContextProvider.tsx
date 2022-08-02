@@ -1,4 +1,10 @@
-import React, { createContext, useContext, useReducer, useState } from 'react';
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useReducer,
+  useState,
+} from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 export interface Context {
@@ -15,9 +21,8 @@ export interface Context {
 const Context = createContext<Context>({} as Context);
 
 export const useModal = () => {
-  const { dialogs, setDialogs, sharedData, setSharedData } = useContext(
-    Context
-  );
+  const { dialogs, setDialogs, sharedData, setSharedData } =
+    useContext(Context);
 
   const create = (type: string, props: any) => {
     setDialogs({
@@ -62,8 +67,6 @@ export const useModal = () => {
     /**
      * A state shared between all currently open modals. This is useful for
      * passing data between modals, for example in multi-stage forms.
-     *
-     * This data is automatically reset whenever the stack of modals is emptied.
      */
     sharedData,
     /**

@@ -1,6 +1,8 @@
 {
   "version": "1.0.4",
   "license": "MIT",
+  "main": "dist/index.js",
+  "module": "dist/spuntare.esm.js",
   "typings": "dist/index.d.ts",
   "publishConfig": {
     "access": "public"
@@ -44,7 +46,6 @@
   },
   "name": "@ironeko/spuntare",
   "author": "Leonardo Petrucci",
-  "module": "dist/modal-controller.esm.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/coloredcat/spuntare.git"

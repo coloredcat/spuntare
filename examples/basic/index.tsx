@@ -1,13 +1,13 @@
-import 'react-app-polyfill/ie11';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import Button from './components/button';
 import { SpuntareContextProvider, useSpuntare } from '@ironeko/spuntare';
 import { AnimatePresence } from 'framer-motion';
 import Modal, { ModalProps } from './components/modal';
 import Overlay from './components/overlay';
 
-const App = () => {
+const Index = () => {
   return (
     <div>
       <SpuntareContextProvider
@@ -164,4 +164,6 @@ const Internal = () => {
   );
 };
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const container = document.getElementById('app');
+const root = createRoot(container!);
+root.render(<Index />);

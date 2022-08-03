@@ -9,7 +9,7 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@ironeko/spuntare": "^1.0.0",
+    "@ironeko/spuntare": "latest",
     "@radix-ui/colors": "^0.1.8",
     "@radix-ui/react-dialog": "^1.0.0",
     "@stitches/react": "^1.2.8",
@@ -21,9 +21,9 @@
   "devDependencies": {
     "@types/react": ">=16.9.11",
     "@types/react-dom": ">=16.8.4",
+    "typescript": "^4",
     "vite": "latest",
-    "vite-preset-react": "latest",
-    "typescript": "^4"
+    "vite-preset-react": "latest"
   },
   "resolutions": {
     "@babel/preset-env": "7.13.8"

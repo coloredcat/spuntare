@@ -3,7 +3,7 @@ import * as DialogPrimitive from '@radix-ui/react-dialog';
 import { blackA, mauve } from '@radix-ui/colors';
 import { styled } from '@stitches/react';
 import { HTMLMotionProps, motion } from 'framer-motion';
-import { SpuntareProps } from '../@ironeko/spuntare';
+import { SpuntareProps } from '@ironeko/spuntare';
 
 const StyledOverlay = styled(DialogPrimitive.Overlay, {
   backgroundColor: blackA.blackA9,
@@ -117,9 +117,9 @@ const Modal = ({
             }}
             animate={{
               opacity: 1,
-              transform: `translate(-50%, -50%) scale(${1 -
-                depthOfType * (0.2 / lengthOfType)}) translateY(-${depthOfType *
-                (50 / lengthOfType)}px)`,
+              transform: `translate(-50%, -50%) scale(${
+                1 - depthOfType * (0.2 / lengthOfType)
+              }) translateY(-${depthOfType * (50 / lengthOfType)}px)`,
               filter: depth > 0 ? 'blur(2px)' : 'blur(0px)',
             }}
             exit={{

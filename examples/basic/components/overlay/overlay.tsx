@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { SpuntareProps } from '../@ironeko/spuntare';
+import { SpuntareProps } from '@ironeko/spuntare';
 import Modal, { ModalProps } from '../modal';
 
 type ExtendedOverlayProps = SpuntareProps & ModalProps;
@@ -19,11 +19,11 @@ const Overlay = (props: OverlayProps) => {
       }}
       animate={{
         opacity: 1,
-        transform: `scale(${1 -
-          props.depthOfType *
-            (0.2 /
-              props.lengthOfType)}) translateX(0%) translateX(-${props.depthOfType *
-          (100 / props.lengthOfType)}px)`,
+        transform: `scale(${
+          1 - props.depthOfType * (0.2 / props.lengthOfType)
+        }) translateX(0%) translateX(-${
+          props.depthOfType * (100 / props.lengthOfType)
+        }px)`,
         filter: props.depth > 0 ? 'blur(2px)' : 'blur(0px)',
       }}
       exit={{

@@ -898,9 +898,9 @@
   integrity sha512-W2dAL6Bnyn4xa/QRSU3ilIK4EzD5wgYXKXJiS1HDF5vU3675qc2bvFyLwbUcdmssDveyndy7FbitrCoiV/eMLg==
 
 "@ironeko/spuntare@latest":
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/@ironeko/spuntare/-/spuntare-1.0.4.tgz#335a31ca22e1841d73d5d0fb0179e0e42f0eb3e3"
-  integrity sha512-Ywg8jSSo/d74bx2Rgv8glZj8MaCLSMYIdBpYNVPwEw7/A2Xj2TFFt3bIv0urcnLlJF9fzOkDmrLm7VDLk/USow==
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@ironeko/spuntare/-/spuntare-1.0.5.tgz#36884f5a35791679b5ada55be02beb14b3a7dc4b"
+  integrity sha512-vD9wjXkT2aQKViIaQ1U+920ND6E3nusMNCIThMIL+vyVDA4YXWMJ4UqMu68dQvWvh9ZyTQfXUI+UIdKy50Z/Ew==
   dependencies:
     lodash "^4.17.21"
     uuid "^8.3.2"

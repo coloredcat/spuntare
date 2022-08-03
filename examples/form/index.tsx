@@ -1,14 +1,15 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import Button from './components/button';
+import { createRoot } from 'react-dom/client';
 import { SpuntareContextProvider, useSpuntare } from '@ironeko/spuntare';
 import { AnimatePresence } from 'framer-motion';
 import Modal, { ModalProps } from './components/modal';
 import Overlay from './components/overlay';
-import Input from './components/input';
 import { useForm } from 'react-hook-form';
+import Button from './components/button';
+import Input from './components/input';
 
-const App = () => {
+const Index = () => {
   return (
     <div>
       <SpuntareContextProvider
@@ -20,6 +21,7 @@ const App = () => {
             component: Overlay,
           },
         }}
+        // @ts-ignore
         modalWrapper={AnimatePresence}
       >
         <div
@@ -150,7 +152,7 @@ const FormWithinModal = () => {
 };
 
 const Internal = () => {
-  const { create, removeLast } = useSpuntare();
+  const { create, removeLast, dialogs } = useSpuntare();
 
   return (
     <Button
@@ -169,4 +171,6 @@ const Internal = () => {
   );
 };
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const container = document.getElementById('app');
+const root = createRoot(container!);
+root.render(<Index />);

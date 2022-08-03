@@ -1,39 +1,38 @@
-import React from "react";
-import { v4 as uuidv4 } from "uuid";
-import { Context, context } from "./context";
+import React from 'react';
+import { v4 as uuidv4 } from 'uuid';
+import { Context, context } from './context';
 
 export const useModal = () => {
-  const { dialogs, setDialogs, sharedData, setSharedData } = React.useContext(
-    context
-  );
+  const { dialogs, setDialogs, sharedData, setSharedData } =
+    React.useContext(context);
 
   const create = (type: string, props: any) => {
     setDialogs({
-      type: "create",
+      type: 'create',
       modal: {
         modalType: type,
         props,
-        id: uuidv4()
-      }
+        id: uuidv4(),
+      },
     });
   };
 
   const removeLast = () => {
     setDialogs({
-      type: "removeLast"
+      type: 'removeLast',
     });
   };
 
   const remove = (id: string) => {
     setDialogs({
-      type: "remove",
-      id
+      type: 'remove',
+      id,
     });
   };
 
   const removeAll = () => {
     setDialogs({
-      type: "removeAll"
+      type: 'removeAll',
     });
   };
 
@@ -74,29 +73,29 @@ export const useModal = () => {
     /**
      * Removes all modals from the stack.
      */
-    removeAll
+    removeAll,
   };
 };
 
 const reducer = (
-  state: Context["dialogs"],
+  state: Context['dialogs'],
   action?: {
     type?: string;
-    modal?: Context["dialogs"][0];
+    modal?: Context['dialogs'][0];
     id?: string;
   }
-): Context["dialogs"] => {
+): Context['dialogs'] => {
   switch (action?.type) {
-    case "create":
+    case 'create':
       if (action.modal) {
         return [...state, action.modal];
       }
       return state;
-    case "removeLast":
+    case 'removeLast':
       return state.slice(0, -1);
-    case "remove":
+    case 'remove':
       return state.filter((d: any) => d.id !== action.id);
-    case "removeAll":
+    case 'removeAll':
       return [];
     default:
       return state;
@@ -143,7 +142,7 @@ export interface ModalControllerProps {
 const ContextProvider = ({
   children,
   config,
-  modalWrapper
+  modalWrapper,
 }: {
   children: React.ReactNode;
   config: ContextConfig;
@@ -155,7 +154,7 @@ const ContextProvider = ({
   modalWrapper?: React.ReactNode;
 }) => {
   const Wrapper = (modalWrapper || React.Fragment) as any;
-  const state = [] as Context["dialogs"];
+  const state = [] as Context['dialogs'];
 
   const [dialogs, setDialogs] = React.useReducer(reducer, state);
   const [sharedData, setSharedData] = React.useState<any | undefined>(

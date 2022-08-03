@@ -1,7 +1,6 @@
 {
-  "version": "1.0.3",
+  "version": "1.0.4",
   "license": "MIT",
-  "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "publishConfig": {
     "access": "public"
@@ -21,21 +20,27 @@
     "node": ">=14"
   },
   "scripts": {
-    "start": "tsdx watch",
-    "build": "tsdx build",
-    "test": "tsdx test --passWithNoTests",
-    "lint": "tsdx lint",
-    "prepare": "tsdx build",
+    "analyze": "size-limit --why",
+    "build": "dts build",
+    "lint": "dts lint",
+    "prepare": "dts build",
     "size": "size-limit",
-    "analyze": "size-limit --why"
+    "start": "dts watch",
+    "test": "dts test --passWithNoTests"
   },
   "peerDependencies": {
     "react": ">=16"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "tsdx lint"
+      "pre-commit": "dts lint"
     }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
   },
   "name": "@ironeko/spuntare",
   "author": "Leonardo Petrucci",
@@ -56,14 +61,16 @@
   ],
   "devDependencies": {
     "@size-limit/preset-small-lib": "^8.0.0",
+    "@tsconfig/create-react-app": "^1.0.2",
+    "@tsconfig/recommended": "^1.0.1",
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
     "@types/uuid": "^8.3.4",
+    "dts-cli": "^1.5.2",
     "husky": "^8.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "size-limit": "^8.0.0",
-    "tsdx": "^0.14.1",
     "tslib": "^2.4.0",
     "typescript": "^4.7.4"
   },

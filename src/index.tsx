@@ -1,7 +1,10 @@
 import ContextProvider, {
-  ModalControllerProps,
   useModal
 } from "./ContextProvider";
+
+import type {
+  ModalControllerProps
+} from './ContextProvider'
 
 export {
   ContextProvider as SpuntareContextProvider,

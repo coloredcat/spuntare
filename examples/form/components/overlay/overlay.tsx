@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { SpuntareProps } from '../@ironeko/spuntare';
+import { SpuntareProps } from '../../../../src';
 import Modal, { ModalProps } from '../modal';
 
 type ExtendedOverlayProps = SpuntareProps & ModalProps;

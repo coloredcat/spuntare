@@ -31,10 +31,9 @@ jobs:
           git config --local user.name "GitHub Actions"
           git config --local user.email "actions@github.com"
 
-      - run: npm ci
-      - run: npm test
+      - run: yarn install --frozen-lockfile
 
-      - run: npm run release
+      - run: yarn run release
         env:
           # Set the "GITHUB_TOKEN" environmental variable
           # required by "@ossjs/release" to communicate with GitHub.

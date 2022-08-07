@@ -37,7 +37,7 @@ const Index = () => {
 };
 
 const DeepModal = () => {
-  const { removeAll, sharedData } = useSpuntare();
+  const { removeAll } = useSpuntare();
 
   return (
     <>

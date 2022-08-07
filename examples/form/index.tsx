@@ -152,7 +152,7 @@ const FormWithinModal = () => {
 };
 
 const Internal = () => {
-  const { create, removeLast, dialogs } = useSpuntare();
+  const { create, removeLast } = useSpuntare();
 
   return (
     <Button

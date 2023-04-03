@@ -2,7 +2,7 @@
 
 # Spuntare
 
-Spuntare is a modal controller for React. It is a simple, easy-to-use, and powerful component for creating stacks of modals that can interact and communicate with each other.
+Spuntare is a modal controller for React. It is a simple, easy-to-use, and powerful component for creating stacks of modals that can interact and communicate with each other. Spuntare is designed to work with any modal implementation, how modals interact is up to you.
 
 ## Features
 
